@@ -53,7 +53,7 @@ app.post("/", function(req, res){
   https.get(url, function(response){
     console.log(response.statusCode);
     
-    if(response.statusCode==500)
+    if(response.statusCode!=200)
     {
       res.sendFile(__dirname+"/error.html");
     }
