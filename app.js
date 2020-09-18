@@ -45,7 +45,7 @@ app.get("/", function(req, res){
 app.post("/", function(req, res){
 
   query=req.body.cityName;
-  console.log(query);
+  // console.log(query);
   
 
   const url="https://openweathermap.org/data/2.5/weather?q="+query+"&appid="+process.env.API_KEY;
@@ -53,7 +53,7 @@ app.post("/", function(req, res){
   https.get(url, function(response){
     console.log(response.statusCode);
     
-    if(response.statusCode!=200)
+    if(response.statusCode==500)
     {
       res.sendFile(__dirname+"/error.html");
     }
